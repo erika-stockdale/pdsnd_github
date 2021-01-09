@@ -226,7 +226,7 @@ def main():
 
             restart = input('\nWould you like to restart? Enter yes or no.\n').lower()
             if restart.lower() != 'yes':
-                break
+                break # ensures users can end loop without viewing all data retrieved by the functions
 
 if __name__ == "__main__":
 	    main()
