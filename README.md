@@ -15,11 +15,11 @@ This collaborative project aims to improve the efficiency, usability and appeara
 - washington.csv
 
 ### Rules for Contributing (Code of Conduct)
-You are welcome to suggest any improvements to the underlying .py code that will return results to users more quickly, or new analysis that you think users would find interesting. Make sure your pull request summarises the improvement you are making to the existing Description. If you want to introduce new data analysis into the script, state why you think users will find it interesting in your pull request.
+1. You are welcome to suggest any improvements to the underlying .py code that will return results to users more quickly, or new analysis that you think users would find interesting. Make sure your pull request summarises the improvement you are making to the existing Description. If you want to introduce new data analysis into the script, state why you think users will find it interesting in your pull request.
 
-You are welcome to suggest styling and user interface improvements that will give users a better experience. Make sure your pull request states whether you are contributing content improvements to existing text, suggested new error messages or styling improvements.
+2. You are welcome to suggest styling and user interface improvements that will give users a better experience. Make sure your pull request states whether you are contributing content improvements to existing text, suggested new error messages or styling improvements.
 
-Be courteous with your communications.
+3. **Be courteous with your communications.**
 
 
 ### Credits
