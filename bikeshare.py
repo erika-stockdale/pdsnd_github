@@ -17,47 +17,47 @@ Returns:
     """
     print('Hello! Let\'s explore some US bikeshare data!')
 # Prompt user to enter a valid city of interest (chicago, new york city, washington) and display error if unexpected value entered.
-    
+
     while True:
         city = input("Would you like to view data from Chicago, New York City or Washington? Type the name of your desired city:\n").lower() # converts input to lower case
-        if city.lower() not in ("chicago", "new york city", "washington"): 
-            
+        if city.lower() not in ("chicago", "new york city", "washington"):
+
         # Validation error displayed if user enters an unexpected city or integer
             print("That's not a valid city. Enter Chicago, New York City or Washington.\n").lower() # converts input to lower case
             continue #enables user a second chance to enter valid data
         else:
     # Provide user with success message verifying the selection
-            print("That's great, we'll prepare data for ", city) 
+            print("That's great, we'll prepare data for ",city.title())
             break # exit the loop once user submits a valid city
-        
+
     # Prompt user to confirm if he/she wants to view data for a specific single month or all available data and display error message for invalid input
-    
+
     while True:
         month = input("Would you like to view data for a specific month between January and June? If so, type the month's name; otherwise, type All to view data for all months:\n").lower() # converts input to lower case
-        
+
     # converts input to lower case and validates against available months
-        if month.lower() not in ("january", "february", "march", "april", "may", "june", "all"):  
-            
+        if month.lower() not in ("january", "february", "march", "april", "may", "june", "all"):
+
         # error message reminding user of required formatting and available data and enabling opportunity for correction and progression
-            print("This data isn't available or you have entered a number. Please type the name of a month between January and June, or type All to view all data\n").lower() 
+            print("This data isn't available or you have entered a number. Please type the name of a month between January and June, or type All to view all data\n").lower()
             continue
         else:
         # provide user with message of success and validation of entered data
-                print("No problem, we'll retrieve data for: ", month) 
+                print("No problem, we'll retrieve data for: ",month.title())
                 break # exit the loop once user submits valid month filter
-            
+
 # Prompt user to confirm if he/she wants to view data for a specific day of the week or all available days and display error message for invalid input
     while True:
          day = input("Do you want to view data for a specific day of the week? If so, type the day; if not, type All:\n").lower() # converts input to lower case
          if day.lower() not in ("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday", "all"):
-        
+
         # error message displayed if invalid data entered that also reminds user of required format and allows an opportunity for correction and progression
              print("Oops, there's a problem. Please type the day you want in full e.g. Monday, or type All:\n").lower() # converts input to lower case
              continue
          else:
-            print("Perfect, we'll retrieve data for: ", day)
+            print("Perfect, we'll retrieve data for: ",day.title())
             break # exit the loop once user submits valid day filter
-        
+
     return city, month, day # stores user filter selections for later use
 
 def load_data(city, month, day):
@@ -73,10 +73,10 @@ def load_data(city, month, day):
     """
     # load data file into a dataframe
     df = pd.read_csv(CITY_DATA[city])
-    
+
     # convert the Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
-    
+
     # extract month and day of week from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
@@ -86,10 +86,10 @@ def load_data(city, month, day):
         # use the index of the months list to get the corresponding integer
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month) + 1
-    
+
         # filter by month to create the new dataframe
         df = df[df['month'] == month]
-  
+
         #filter by day of week, if applicable
     if day != 'all':
         # filter by day of week to create the new dataframe
@@ -106,26 +106,26 @@ def time_stats(df):
     # identify the most common month in which journeys started using pandas
     #convert Start Time to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
-    
+
     # extract month from Start Time
     df['month'] = df['Start Time'].dt.month
-    
+
     # compute most common month
     popular_month = df['month'].mode()[0]
-    
+
     # display the most common month
     print('Most Popular Month:', popular_month)
-    
+
     # identify the most common day of week for starting journeys using pandas
     # extract day of week from Start Time
     df['day'] = df['Start Time'].dt.dayofweek
-    
+
     # compute the most common day of week
     popular_day = df['day'].mode()[0]
-    
+
     # display the most common day of week
     print('Most Popular Day: ', popular_day)
-    
+
     # identify the most common start hour using pandas
     # extract hour from the Start Time column
     df['hour'] = df['Start Time'].dt.hour
@@ -190,8 +190,8 @@ def user_stats(df):
         df['Gender'] is not None # to avoid key errors caused by missing data
         gender_totals = df['Gender'].value_counts()
     except:
-        print("\nSorry, gender statistics were not collected for Washington.\n") 
-        
+        print("\nSorry, gender statistics were not collected for Washington.\n")
+
     # Calculate earliest, most recent, and most common year of birth
     try:
         df['Birth Year'] is not None # to avoid key errors caused by missing data
@@ -203,8 +203,8 @@ def user_stats(df):
         print('-'*40)
     except:
         print("\nSorry, birth date statistics were not colleced for Washington.\n")
-    
-    
+
+
 def main():
         while True:
             city, month, day = get_filters()
@@ -222,7 +222,7 @@ def main():
                     break
                 print (df.iloc[i:i+5])
                 view_data= input('\nWould you like to see the next 5 rows of data?\n').lower()
-                i += 5   
+                i += 5
 
             restart = input('\nWould you like to restart? Enter yes or no.\n').lower()
             if restart.lower() != 'yes':
