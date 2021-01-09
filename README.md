@@ -1,15 +1,18 @@
 ### Date created
-Test edit
-Include the date you created this project and README file.
+This project and README file was created on 9 January 2021.
 
 ### Project Title
-Replace the Project Title
+Bikeshare Data Analysis Collaboration project
 
 ### Description
-Describe what your project is about and what it does
+This collaborative project aims to improve the efficiency and usability of an interactive python script analysing customer usage and demographic statistics published by the US company Bikeshare.
 
 ### Files used
-Include the files used
+.gitignore
+bikeshare.py
+chicago.csv
+new_york_city.csv
+washington.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+The large .csv data files are deliberately excluded from this remote github repository to preserve bandwidth, but the files are available for download from Bikeshare's corporate website: https://www.bikeshare.com/data/
