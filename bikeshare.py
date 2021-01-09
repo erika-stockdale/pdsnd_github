@@ -27,7 +27,13 @@ Returns:
             continue #enables user a second chance to enter valid data
         else:
     # Provide user with success message verifying the selection
+<<<<<<< HEAD
             print("That's great, we'll prepare data for ",city.title())
+||||||| 33ea098
+            print("That's great, we'll prepare data for ", city) 
+=======
+            print("That's great, we'll prepare data for ", city)
+>>>>>>> refactoring
             break # exit the loop once user submits a valid city
 
     # Prompt user to confirm if he/she wants to view data for a specific single month or all available data and display error message for invalid input
@@ -43,7 +49,13 @@ Returns:
             continue
         else:
         # provide user with message of success and validation of entered data
+<<<<<<< HEAD
                 print("No problem, we'll retrieve data for: ",month.title())
+||||||| 33ea098
+                print("No problem, we'll retrieve data for: ", month) 
+=======
+                print("No problem, we'll retrieve data for: ", month)
+>>>>>>> refactoring
                 break # exit the loop once user submits valid month filter
 
 # Prompt user to confirm if he/she wants to view data for a specific day of the week or all available days and display error message for invalid input
@@ -95,7 +107,7 @@ def load_data(city, month, day):
         # filter by day of week to create the new dataframe
         df = df[df['day_of_week'] == day.title()]
 
-    return df
+    return df # stores function output for reference in all subsequent functions
 
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
@@ -219,14 +231,14 @@ def main():
             view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n').lower() # converts user input into lower case
             while True:
                 if view_data == 'no':
-                    break
+                    break # ends the loop if user is happy to partially view data output
                 print (df.iloc[i:i+5])
                 view_data= input('\nWould you like to see the next 5 rows of data?\n').lower()
                 i += 5
 
             restart = input('\nWould you like to restart? Enter yes or no.\n').lower()
             if restart.lower() != 'yes':
-                break
+                break # ensures users can end loop without viewing all data retrieved by the functions
 
 if __name__ == "__main__":
 	    main()
