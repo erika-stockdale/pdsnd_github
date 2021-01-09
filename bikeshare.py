@@ -219,7 +219,7 @@ def main():
             view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n').lower() # converts user input into lower case
             while True:
                 if view_data == 'no':
-                    break
+                    break # ends the loop if user is happy to partially view data output
                 print (df.iloc[i:i+5])
                 view_data= input('\nWould you like to see the next 5 rows of data?\n').lower()
                 i += 5
